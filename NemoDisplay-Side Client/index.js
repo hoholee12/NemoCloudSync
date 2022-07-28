@@ -29,7 +29,7 @@ watch1.on('add', function (filename) {
   console.log("cloud: " + resultfile);
   
   //view received image
-  exec("/opt/pkgs/nemo.image/exec -f " + resultfile + " -a nemo.image", (error, stdout, stderr) => {});
+  //exec("/opt/pkgs/nemo.image/exec -f " + resultfile + " -a nemo.image", (error, stdout, stderr) => {});
 
   var copytofile = "/opt/contents/default/media/pct/news/" + resultfile.split('/').pop();
   //copy to the Nemo folder
@@ -72,7 +72,7 @@ nemosftpsrv.on("connect", function (auth, info) {
         //filename
 		console.log("sftp: " + filename);
 		//view received image
-		exec("/opt/pkgs/nemo.image/exec -f " + filename + " -a nemo.image", (error, stdout, stderr) => {});
+		//exec("/opt/pkgs/nemo.image/exec -f " + filename + " -a nemo.image", (error, stdout, stderr) => {});
 		//copy to the Nemo folder
 		var copytofile = "/opt/contents/default/media/pct/news/" + filename.split('/').pop();
 		fs.createReadStream(filename).pipe(fs.createWriteStream(copytofile));
