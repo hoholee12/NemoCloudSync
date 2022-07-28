@@ -35,8 +35,8 @@ export class HomePage {
 
 
   //for changing upload pattern
-  public delaytime = 2000; //delay before another send
-  public delaycount = 10; //number of files to send in batch
+  public delaytime = 0; //delay before another send
+  public delaycount = 100; //number of files to send in batch
 
   //for determining whether to send directly or via cloud
   public latencylimit = 100;
@@ -48,10 +48,9 @@ export class HomePage {
   //latency check
 
   public displayLatency = '';
-  public displayLatency2 = 'asdfasdf';
+  public displayLatency2 = '';
 
   seamlessMode: boolean;
-  sendAll: boolean;
   photo: SafeResourceUrl;
 
   public sendlatencystat: number;
@@ -191,11 +190,11 @@ export class HomePage {
 
             
 
-          if((latoff < 10000 && latoff > -10000 && longoff < 10000 && longoff > -10000) || this.sendAll){
+          if((latoff < 10000 && latoff > -10000 && longoff < 10000 && longoff > -10000)){
             //2. photo taken in under 5 minutes
             var mtimeoff = this.mtime - resultmtime;
 
-            if((mtimeoff < 5 && mtimeoff > -5) || this.sendAll){  //TODO: this.mtime
+            if((mtimeoff < 5 && mtimeoff > -5)){  //TODO: this.mtime
               count++;
               Filesystem.getUri({path:filename, directory: Directory.Documents}).then((result)=>{
                 this.path = result.uri.replace('file://', '');
@@ -215,7 +214,6 @@ export class HomePage {
                   
                   this.geoerror = "sent: " + count + " files out of: " + total + " files total";
 
-                  this.displayLatency2 = "asdfasdf: " + counter;
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
@@ -254,7 +252,6 @@ export class HomePage {
                 }
                 else if((countertotal - counter) % this.delaycount === 0){
                   
-                  this.displayLatency2 = "fdsafdsafdsa: " + counter;
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
