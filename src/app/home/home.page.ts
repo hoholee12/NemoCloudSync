@@ -234,16 +234,6 @@ export class HomePage {
                     this.latencyadd = 0;
                     this.delayswitch = false;
 
-                    //switch to cloud when sending was slower than expected
-                    if(success.latency > this.latencylimit * this.delaycount){
-                      this.sendlatencystat = 1;
-                      this.geoerror = "send the rest via cloud";
-                    }
-                    else{
-                      this.sendlatencystat = 0;
-                      this.geoerror = "send the rest via sftp";
-                    }
-
                   }, (fail)=>{
 
                   });
@@ -265,18 +255,14 @@ export class HomePage {
                   }
                   
                   this.sftp.uploadList(copyofuplist, (success)=>{
-                      this.displayLatency = "sending batches..." + counter;
-                      this.latencyadd += success.latency;
+                    this.displayLatency = "sending batches..." + counter;
+                    this.latencyadd += success.latency;
 
-                      //switch to cloud when sending was slower than expected
-                      if(success.latency > this.latencylimit * this.delaycount){
-                        this.sendlatencystat = 1;
-                        this.geoerror = "send the rest via cloud";
-                      }
-                      else{
-                        this.sendlatencystat = 0;
-                        this.geoerror = "send the rest via sftp";
-                      }
+                    //switch to cloud when sending was slower than expected
+                    if(success.latency > this.latencylimit * this.delaycount){
+                      this.sendlatencystat = 1;
+                      this.geoerror = "send the rest via cloud";
+                    }
 
                   }, (fail)=>{
                     
