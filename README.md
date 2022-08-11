@@ -8,7 +8,7 @@ Based on the [NemoSharing][sharinglink] project, the following features have bee
 * Simpler file sharing between multiple clients.
 * Improved accessibility through a web page without using a dedicated API.
 
-[sharinglink]: https://github.com/hoholee12/NemoSharing "Git Link"
+[sharinglink]: https://github.com/hoholee12/NemoSharing
 
 ## Dependencies
  - NodeJS -v 14.17.0
@@ -79,6 +79,10 @@ sudo node index.js
 ```
 
 The NemoDisplay-Side Server and the CloudServer-Side Server programs are designed to run only on the NEMOUX platform.
+
+## See also
+* NEMOUX(https://ko-kr.facebook.com/nemoux/)
+* Owncloud(https://github.com/owncloud/core)
 
 ## Contact Information
 Please contact us at <ins>`hoholee12@gmail.com`</ins> with any questions.
