@@ -80,7 +80,10 @@ sudo node index.js
 
 The NemoDisplay-Side Server and the CloudServer-Side Server programs are designed to run only on the NEMOUX platform.
 
-## See also
+## Usage Demo
+![Usage-Demo](nemo-demo.gif)
+
+## See Also
 * [NEMOUX](https://ko-kr.facebook.com/nemoux/)
 * [Owncloud](https://github.com/owncloud/core)
 
