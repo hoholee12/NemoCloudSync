@@ -248,9 +248,11 @@ export class HomePage {
                   }
                   this.delayswitch = true;
                   if(this.sendlatencystat == 0){
+                    //send to nemodisplay
                     this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
                   }
                   else{
+                    //send to cloud server
                     this.sftp = new window.JJsftp('115.145.170.217', '8022', 'nemoux', 'nemoux');
                   }
                   
