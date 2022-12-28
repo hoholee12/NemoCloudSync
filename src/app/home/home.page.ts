@@ -150,15 +150,11 @@ export class HomePage {
     Filesystem.readdir({path: '', directory: Directory.Documents}).then((result)=>{
 
       this.uplist = [];
-      
       var counter = result.files.length;
       var countertotal = counter;
       
-      
       result.files.forEach((filename, idx)=>{
         total++;
-      
-
 
         Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
           
@@ -176,7 +172,6 @@ export class HomePage {
             parseInt(parsetime.split(' ')[0].split(':')[2]) * 24 * 60 +
             parseInt(parsetime.split(' ')[1].split(':')[0]) * 60 +
             parseInt(parsetime.split(' ')[1].split(':')[1]);
-
             
 
           if((latoff < 10000 && latoff > -10000 && longoff < 10000 && longoff > -10000)){
