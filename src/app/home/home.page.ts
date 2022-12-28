@@ -141,7 +141,7 @@ export class HomePage {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
-  
+  //use upload list to batch send via sftp
   public uplist:{remote: string, local: string}[] = [];
   batchUpload(firstphotopath: string){
     var count = 0;
