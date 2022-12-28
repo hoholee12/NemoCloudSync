@@ -44,17 +44,12 @@ export class HomePage {
   public delayswitch = false;
 
   //latency check
-
   public displayLatency = '';
   public displayLatency2 = '';
-
   seamlessMode: boolean;
   photo: SafeResourceUrl;
-
   public sendlatencystat: number;
-  
   public path = "";
-  
   public sftp: any;
 
   constructor(private sanitizer: DomSanitizer, private http: HttpClient, private platform: Platform, private diagnostic: Diagnostic, private fileChooser: FileChooser, private filePath: FilePath) {
