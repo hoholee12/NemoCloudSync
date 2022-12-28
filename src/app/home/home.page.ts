@@ -375,9 +375,7 @@ export class HomePage {
 
               if(this.seamlessMode){
                 this.path = result.uri.replace('file://', '');
-
-                //this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
-                //this.sftp.upload('/opt/contents/default/media/pct/news/', this.path, (good)=>{
+				
                 this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
                 this.sftp.upload('/syncfolder/', this.path, (success)=>{
                 
