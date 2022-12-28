@@ -156,12 +156,7 @@ export class HomePage {
       
       result.files.forEach((filename, idx)=>{
         total++;
-        /*
-        Filesystem.getUri({path:filename, directory: Directory.Documents}).then((result)=>{
-          this.path = result.uri.replace('file://', '');
-          
-        })
-        */
+      
 
 
         Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
