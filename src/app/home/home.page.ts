@@ -256,17 +256,10 @@ export class HomePage {
                   this.uplist = []; //clear array
                   
                 }
-                
-              });
-            
-              
+              }); 
             }
-            
-
           }
-          
         })
-         
       })
     })
   }
