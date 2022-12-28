@@ -431,16 +431,9 @@ export class HomePage {
               
               this.http.post("http://115.145.170.217:3000/upload", formData).subscribe((response)=>{ console.log(response)});
             });
-    
           }
         });
-        
-        
-        
-      });
-
-      
-            
+      }); 
     }
   }
 
