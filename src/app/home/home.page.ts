@@ -452,13 +452,14 @@ export class HomePage {
     
   }
 
+//this is the seamless Mode
   takePicture() {
     this.updatedatetime();
     this.initlatencycheck();
     this.takePhoto(CameraSource.Camera);
     
   }
-
+//this is the pre-migration Mode
   takeGallery() {
     this.updatedatetime();
     this.initlatencycheck();
