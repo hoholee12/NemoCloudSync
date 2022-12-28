@@ -90,5 +90,5 @@ The NemoDisplay-Side Server and the CloudServer-Side Server programs are designe
 * [NEMOUX](https://ko-kr.facebook.com/nemoux/)
 * [Owncloud](https://github.com/owncloud/core)
 
-## Contact Information
+## Contact Info.
 Please contact us at <ins>`hoholee12@gmail.com`</ins> with any questions.
