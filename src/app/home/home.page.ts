@@ -40,9 +40,7 @@ export class HomePage {
 
   //for determining whether to send directly or via cloud
   public latencylimit = 100;
-
   public latencyadd = 0;
-
   public delayswitch = false;
 
   //latency check
