@@ -119,7 +119,7 @@ export class HomePage {
     /* TODO: Add transmission code (seamlessMode == true) */
   }
   
- 
+ //this is to convert to base64 code from path
   async base64FromPath(path: string): Promise<string> {
     const response = await fetch(path);
     const blob = await response.blob();
