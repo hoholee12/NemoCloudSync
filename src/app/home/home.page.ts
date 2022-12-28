@@ -198,6 +198,7 @@ export class HomePage {
                   
                   this.geoerror = "sent: " + count + " files out of: " + total + " files total";
 
+					//this changes upload path 
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
@@ -225,7 +226,7 @@ export class HomePage {
 
                 }
                 else if((countertotal - counter) % this.delaycount === 0){
-                  
+                  //this changes upload path 
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
