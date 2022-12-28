@@ -81,6 +81,7 @@ export class HomePage {
     }
   }
 
+//this is for timestamp
   updatedatetime(){
     var date = new Date();
     this.datetime = date.getFullYear() + ':' + ('0' + date.getMonth()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2);
@@ -273,10 +274,10 @@ export class HomePage {
          
       })
     })
-    
-    
   }
-
+  
+  
+//photo button func
   takePhoto(myCameraSource: CameraSource){
     if(this.platform.is('android')){
       const options = {
