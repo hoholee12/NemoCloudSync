@@ -444,6 +444,7 @@ export class HomePage {
     }
   }
 
+//this is for initializing latency checker
   initlatencycheck(){
 
     this.geoerror = "";
