@@ -1,7 +1,9 @@
 # NemoCloudSync
+
 This work was supported by Institute of Information & communications Technology Planning & Evaluation(IITP) grant funded by the Korea government(MSIT) (No.2015-0-00284, (SW Starlab) Development of UX Platform Software for Supporting Concurrent Multi-users on Large Displays).
 
 ## Overview
+
 NemoCloudSync is a cloud-based storage service engine developed to support large displays.
 Based on the [NemoSharing][sharinglink] project, the following features have been added.
 
@@ -11,6 +13,7 @@ Based on the [NemoSharing][sharinglink] project, the following features have bee
 [sharinglink]: https://github.com/hoholee12/NemoSharing
 
 ## Dependencies
+
  - NodeJS -v 14.17.0
  - NPM -v 6.14.13
  - Ionic -v 6.16.2
