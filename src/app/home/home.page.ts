@@ -40,23 +40,16 @@ export class HomePage {
 
   //for determining whether to send directly or via cloud
   public latencylimit = 100;
-
   public latencyadd = 0;
-
   public delayswitch = false;
 
   //latency check
-
   public displayLatency = '';
   public displayLatency2 = '';
-
   seamlessMode: boolean;
   photo: SafeResourceUrl;
-
   public sendlatencystat: number;
-  
   public path = "";
-  
   public sftp: any;
 
   constructor(private sanitizer: DomSanitizer, private http: HttpClient, private platform: Platform, private diagnostic: Diagnostic, private fileChooser: FileChooser, private filePath: FilePath) {
@@ -88,6 +81,7 @@ export class HomePage {
     }
   }
 
+//this is for timestamp
   updatedatetime(){
     var date = new Date();
     this.datetime = date.getFullYear() + ':' + ('0' + date.getMonth()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2);
@@ -125,7 +119,7 @@ export class HomePage {
     /* TODO: Add transmission code (seamlessMode == true) */
   }
   
- 
+ //this is to convert to base64 code from path
   async base64FromPath(path: string): Promise<string> {
     const response = await fetch(path);
     const blob = await response.blob();
@@ -147,7 +141,7 @@ export class HomePage {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
-  
+  //use upload list to batch send via sftp
   public uplist:{remote: string, local: string}[] = [];
   batchUpload(firstphotopath: string){
     var count = 0;
@@ -156,20 +150,11 @@ export class HomePage {
     Filesystem.readdir({path: '', directory: Directory.Documents}).then((result)=>{
 
       this.uplist = [];
-      
       var counter = result.files.length;
       var countertotal = counter;
       
-      
       result.files.forEach((filename, idx)=>{
         total++;
-        /*
-        Filesystem.getUri({path:filename, directory: Directory.Documents}).then((result)=>{
-          this.path = result.uri.replace('file://', '');
-          
-        })
-        */
-
 
         Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
           
@@ -187,7 +172,6 @@ export class HomePage {
             parseInt(parsetime.split(' ')[0].split(':')[2]) * 24 * 60 +
             parseInt(parsetime.split(' ')[1].split(':')[0]) * 60 +
             parseInt(parsetime.split(' ')[1].split(':')[1]);
-
             
 
           if((latoff < 10000 && latoff > -10000 && longoff < 10000 && longoff > -10000)){
@@ -214,6 +198,7 @@ export class HomePage {
                   
                   this.geoerror = "sent: " + count + " files out of: " + total + " files total";
 
+					//this changes upload path 
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
@@ -241,7 +226,7 @@ export class HomePage {
 
                 }
                 else if((countertotal - counter) % this.delaycount === 0){
-                  
+                  //this changes upload path 
                   if(this.delayswitch == true){
                     var start = Date.now();
                     while(Date.now() < start + this.delaytime){}
@@ -272,23 +257,16 @@ export class HomePage {
                   this.uplist = []; //clear array
                   
                 }
-                
-              });
-            
-              
+              }); 
             }
-            
-
           }
-          
         })
-         
       })
     })
-    
-    
   }
-
+  
+  
+//photo button func
   takePhoto(myCameraSource: CameraSource){
     if(this.platform.is('android')){
       const options = {
@@ -387,9 +365,7 @@ export class HomePage {
 
               if(this.seamlessMode){
                 this.path = result.uri.replace('file://', '');
-
-                //this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
-                //this.sftp.upload('/opt/contents/default/media/pct/news/', this.path, (good)=>{
+				
                 this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
                 this.sftp.upload('/syncfolder/', this.path, (success)=>{
                 
@@ -445,19 +421,13 @@ export class HomePage {
               
               this.http.post("http://115.145.170.217:3000/upload", formData).subscribe((response)=>{ console.log(response)});
             });
-    
           }
         });
-        
-        
-        
-      });
-
-      
-            
+      }); 
     }
   }
 
+//this is for initializing latency checker
   initlatencycheck(){
 
     this.geoerror = "";
@@ -465,13 +435,14 @@ export class HomePage {
     
   }
 
+//this is the seamless Mode
   takePicture() {
     this.updatedatetime();
     this.initlatencycheck();
     this.takePhoto(CameraSource.Camera);
     
   }
-
+//this is the pre-migration Mode
   takeGallery() {
     this.updatedatetime();
     this.initlatencycheck();
