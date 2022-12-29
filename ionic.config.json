@@ -1,7 +1,7 @@
 {
-  "name": "nemoSeamless",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+    "name": "nemoSeamless",
+    "integrations": {
+	"capacitor": {}
+    },
+    "type": "angular"
 }
