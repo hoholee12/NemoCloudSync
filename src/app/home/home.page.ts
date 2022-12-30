@@ -368,6 +368,7 @@ export class HomePage {
       }
     }
     else{
+		//this is for browser
       const options = {
         quality: 60,
         allowEditing: false,
@@ -402,6 +403,7 @@ export class HomePage {
               let formData = new FormData();
               formData.append("file", photoBlob, fileName);
               
+			  //browser based blob upload
               this.http.post("http://115.145.170.217:3000/upload", formData).subscribe((response)=>{ console.log(response)});
             });
           }
