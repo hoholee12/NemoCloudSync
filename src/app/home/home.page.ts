@@ -280,60 +280,59 @@ export class HomePage {
       if(myCameraSource == CameraSource.Photos){
         this.fileChooser.open().then((url)=>{
 
-          this.filePath.resolveNativePath(url).then((fpath)=>{
-            var filename = fpath.split('\\').pop().split('/').pop(); //filename only
-            this.geoerror = 'filename:' + filename;
+			this.filePath.resolveNativePath(url).then((fpath)=>{
+				var filename = fpath.split('\\').pop().split('/').pop(); //filename only
+				this.geoerror = 'filename:' + filename;
 
-            Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
+				Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
 
-              //display as base64
-              var str = "data:image/jpeg;base64," + result.data;
-              this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(str);
-              
-              //get the target exif
-              var convertedData = atob(result.data);
-              var exifObj = piexif.load(convertedData);
+				  //display as base64
+				  var str = "data:image/jpeg;base64," + result.data;
+				  this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(str);
+				  
+				  //get the target exif
+				  var convertedData = atob(result.data);
+				  var exifObj = piexif.load(convertedData);
 
-              this.lat = piexif.GPSHelper.dmsRationalToDeg(exifObj["GPS"][piexif.GPSIFD.GPSLatitude]);
-              this.long = piexif.GPSHelper.dmsRationalToDeg(exifObj["GPS"][piexif.GPSIFD.GPSLongitude]);
-              var parsetime:string = exifObj["GPS"][piexif.GPSIFD.GPSDateStamp];
-              this.mtime = 
-                parseInt(parsetime.split(' ')[0].split(':')[0]) * 365 * 31 * 24 * 60  +
-                parseInt(parsetime.split(' ')[0].split(':')[1]) * 31 * 24 * 60 +
-                parseInt(parsetime.split(' ')[0].split(':')[2]) * 24 * 60 +
-                parseInt(parsetime.split(' ')[1].split(':')[0]) * 60 +
-                parseInt(parsetime.split(' ')[1].split(':')[1]);
-              
-               Filesystem.getUri({path:filename, directory: Directory.Documents}).then((result)=>{
-                this.path = result.uri.replace('file://', '');
-                this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
-                this.sftp.upload('/syncfolder/', this.path, (success)=>{
-                  if(success.latency < this.latencylimit){
-                    //send everything via sftp
-                    this.sendlatencystat = 0;
-                    this.geoerror = "send the rest via sftp";
-                  }
-                  else if(success.latency < 1000000){
-                    //send the rest via cloud
-                    this.sendlatencystat = 1;
-                    this.geoerror = "send the rest via cloud";
-                  }
-                  else{
-                    //send everything via cloud - sftp failed
-                    this.sendlatencystat = 2;
-                    this.geoerror = "unable to connect to nemodisplay: send all via cloud";
-                  }
+				  this.lat = piexif.GPSHelper.dmsRationalToDeg(exifObj["GPS"][piexif.GPSIFD.GPSLatitude]);
+				  this.long = piexif.GPSHelper.dmsRationalToDeg(exifObj["GPS"][piexif.GPSIFD.GPSLongitude]);
+				  var parsetime:string = exifObj["GPS"][piexif.GPSIFD.GPSDateStamp];
+				  this.mtime = 
+					parseInt(parsetime.split(' ')[0].split(':')[0]) * 365 * 31 * 24 * 60  +
+					parseInt(parsetime.split(' ')[0].split(':')[1]) * 31 * 24 * 60 +
+					parseInt(parsetime.split(' ')[0].split(':')[2]) * 24 * 60 +
+					parseInt(parsetime.split(' ')[1].split(':')[0]) * 60 +
+					parseInt(parsetime.split(' ')[1].split(':')[1]);
+				  
+				   Filesystem.getUri({path:filename, directory: Directory.Documents}).then((result)=>{
+					this.path = result.uri.replace('file://', '');
+					this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
+					this.sftp.upload('/syncfolder/', this.path, (success)=>{
+					  if(success.latency < this.latencylimit){
+						//send everything via sftp
+						this.sendlatencystat = 0;
+						this.geoerror = "send the rest via sftp";
+					  }
+					  else if(success.latency < 1000000){
+						//send the rest via cloud
+						this.sendlatencystat = 1;
+						this.geoerror = "send the rest via cloud";
+					  }
+					  else{
+						//send everything via cloud - sftp failed
+						this.sendlatencystat = 2;
+						this.geoerror = "unable to connect to nemodisplay: send all via cloud";
+					  }
 
-                }, (bad)=>{});
-                
-               });
+					}, (bad)=>{});
+					
+					});
+				  
+					this.batchUpload(filename); //premigration
 
-
-              this.batchUpload(filename); //premigration
-
-            })
+				})
             
-          })
+			})
         })
       }
       else{
@@ -431,7 +430,6 @@ export class HomePage {
   initlatencycheck(){
     this.geoerror = "";
     this.displayLatency = "";
-    
   }
 
 //this is the seamless Mode
