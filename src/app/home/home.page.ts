@@ -153,6 +153,7 @@ export class HomePage {
       result.files.forEach((filename, idx)=>{
         total++;
 
+		//read one file
         Filesystem.readFile({path: filename, directory: Directory.Documents}).then((result)=>{
           
           //get the target exif
