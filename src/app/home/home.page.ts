@@ -360,13 +360,10 @@ export class HomePage {
                   this.displayLatency = 'single: ' + success.latency + ' msec';
                   //=========================================
 
-                }, (bad)=>{});
-                
+                }, (bad)=>{}); 
               }
             })
-
           });
-
         });
       }
     }
