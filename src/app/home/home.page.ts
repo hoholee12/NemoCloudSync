@@ -30,16 +30,16 @@ export class HomePage {
   public long: number;
   public mtime: number;
 
-  //for changing upload pattern
+  //this is for changing upload pattern
   public delaytime = 0; //delay before another send
   public delaycount = 100; //number of files to send in batch
 
-  //for determining whether to send directly or via cloud
+  //this is for determining whether to send directly or via cloud
   public latencylimit = 100;
   public latencyadd = 0;
   public delayswitch = false;
 
-  //latency check
+  //this is for latency check
   public displayLatency = '';
   public displayLatency2 = '';
   seamlessMode: boolean;
