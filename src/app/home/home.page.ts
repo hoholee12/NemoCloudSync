@@ -344,7 +344,6 @@ export class HomePage {
 
             var exifObj = piexif.load(base64Data);
             if(! exifObj["GPS"][piexif.GPSIFD.GPSLatitude]){
-            
               exifObj["GPS"][piexif.GPSIFD.GPSLatitudeRef] = this.lat < 0 ? 'S' : 'N';
               exifObj["GPS"][piexif.GPSIFD.GPSLatitude] = piexif.GPSHelper.degToDmsRational(this.lat);
               exifObj["GPS"][piexif.GPSIFD.GPSLongitudeRef] = this.long < 0 ? 'W' : 'E';
@@ -366,7 +365,6 @@ export class HomePage {
                 this.sftp = new window.JJsftp('115.145.170.225', '8022', 'nemoux', 'nemoux');
                 this.sftp.upload('/syncfolder/', this.path, (success)=>{
                 
-                  
                   //display result===========================
                   this.displayLatency = 'single: ' + success.latency + ' msec';
                   //=========================================
