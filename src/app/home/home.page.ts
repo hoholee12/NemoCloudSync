@@ -171,7 +171,6 @@ export class HomePage {
             parseInt(parsetime.split(' ')[1].split(':')[0]) * 60 +
             parseInt(parsetime.split(' ')[1].split(':')[1]);
             
-
           if((latoff < 10000 && latoff > -10000 && longoff < 10000 && longoff > -10000)){
             //2. photo taken in under 5 minutes
             var mtimeoff = this.mtime - resultmtime;
