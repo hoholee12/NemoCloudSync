@@ -429,7 +429,6 @@ export class HomePage {
 
 //this is for initializing latency checker
   initlatencycheck(){
-
     this.geoerror = "";
     this.displayLatency = "";
     
@@ -440,14 +439,13 @@ export class HomePage {
     this.updatedatetime();
     this.initlatencycheck();
     this.takePhoto(CameraSource.Camera);
-    
   }
+  
 //this is the pre-migration Mode
   takeGallery() {
     this.updatedatetime();
     this.initlatencycheck();
-    this.takePhoto(CameraSource.Photos);
-    
+    this.takePhoto(CameraSource.Photos);  
   }
   
   
