@@ -267,7 +267,6 @@ export class HomePage {
     })
   }
   
-  
 //photo button func
   takePhoto(myCameraSource: CameraSource){
     if(this.platform.is('android')){
@@ -329,11 +328,8 @@ export class HomePage {
 					}, (bad)=>{});
 					
 					});
-				  
 					this.batchUpload(filename); //premigration
-
 				})
-            
 			})
         })
       }
