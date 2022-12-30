@@ -143,6 +143,7 @@ export class HomePage {
     var count = 0;
     var total = 0;
 
+	//iterate through all photos saved in the device
     Filesystem.readdir({path: '', directory: Directory.Documents}).then((result)=>{
 
       this.uplist = [];
