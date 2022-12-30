@@ -386,8 +386,8 @@ export class HomePage {
         this.base64FromPath(image.webPath).then((base64Data)=>{
           var exifObj = piexif.load(base64Data);
           
+		  //location metadata
           if(! exifObj["GPS"][piexif.GPSIFD.GPSLatitude]){
-          
             exifObj["GPS"][piexif.GPSIFD.GPSLatitudeRef] = this.lat < 0 ? 'S' : 'N';
             exifObj["GPS"][piexif.GPSIFD.GPSLatitude] = piexif.GPSHelper.degToDmsRational(this.lat);
             exifObj["GPS"][piexif.GPSIFD.GPSLongitudeRef] = this.long < 0 ? 'W' : 'E';
