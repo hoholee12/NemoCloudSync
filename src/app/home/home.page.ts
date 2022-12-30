@@ -318,9 +318,7 @@ export class HomePage {
 						this.sendlatencystat = 2;
 						this.geoerror = "unable to connect to nemodisplay: send all via cloud";
 					  }
-
 					}, (bad)=>{});
-					
 					});
 					this.batchUpload(filename); //premigration
 				})
