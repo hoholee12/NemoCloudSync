@@ -22,7 +22,6 @@ declare var piexif: any;
 })
 export class HomePage {
   private file: File;
-  
   public geolat = "";
   public geolong = "";
   public datetime = "";
@@ -30,7 +29,6 @@ export class HomePage {
   public lat: number;
   public long: number;
   public mtime: number;
-
 
   //for changing upload pattern
   public delaytime = 0; //delay before another send
