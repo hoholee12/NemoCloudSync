@@ -71,8 +71,8 @@ export class HomePage {
     else{
       this.lat = 1234;
       this.long = 1234;
-      this.geolat = "latitude: not authorized?";
-      this.geolong = "longitude: not authorized?";
+      this.geolat = "latitude: null";
+      this.geolong = "longitude: null";
     }
   }
 
