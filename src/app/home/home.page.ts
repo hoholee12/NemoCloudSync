@@ -50,10 +50,8 @@ export class HomePage {
 
   constructor(private sanitizer: DomSanitizer, private http: HttpClient, private platform: Platform, 
   private diagnostic: Diagnostic, private fileChooser: FileChooser, private filePath: FilePath) {
-    
     this.locate();  //due to async, geolocation may not be updated in time.
   }
-
 
   //for browser(deprecated)
   //use with ssl disabled.
