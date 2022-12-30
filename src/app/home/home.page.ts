@@ -328,10 +328,9 @@ export class HomePage {
       else{
         const fileName = new Date().getTime() + ".jpeg";
         Camera.getPhoto(options).then((image)=>{
-          this.locate();
-
+          this.locate();	//update location before checking
+		  //insert location metadata
           this.base64FromPath(image.webPath).then((base64Data)=>{
-
             this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(base64Data);
 
             var exifObj = piexif.load(base64Data);
