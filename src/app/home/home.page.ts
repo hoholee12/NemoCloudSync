@@ -52,7 +52,8 @@ export class HomePage {
   public path = "";
   public sftp: any;
 
-  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private platform: Platform, private diagnostic: Diagnostic, private fileChooser: FileChooser, private filePath: FilePath) {
+  constructor(private sanitizer: DomSanitizer, private http: HttpClient, private platform: Platform, 
+  private diagnostic: Diagnostic, private fileChooser: FileChooser, private filePath: FilePath) {
     
     this.locate();  //due to async, geolocation may not be updated in time.
   }
