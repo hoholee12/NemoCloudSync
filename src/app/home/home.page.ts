@@ -84,7 +84,8 @@ export class HomePage {
 //this is for timestamp
   updatedatetime(){
     var date = new Date();
-    this.datetime = date.getFullYear() + ':' + ('0' + date.getMonth()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2);
+    this.datetime = date.getFullYear() + ':' + ('0' + date.getMonth()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2) + ' ' + 
+	('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getDay()).slice(-2);
   }
 
   async dataURItoBlob(dataURI) {
