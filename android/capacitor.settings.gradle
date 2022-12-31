@@ -24,4 +24,4 @@ include ':capacitor-storage'
 project(':capacitor-storage').projectDir = new File('../node_modules/@capacitor/storage/android')
 
 
-// 
+// ---
