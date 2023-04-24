@@ -90,10 +90,6 @@ The NemoDisplay-Side Server and the CloudServer-Side Server programs are designe
 * [NEMOUX](https://ko-kr.facebook.com/nemoux/)
 * [Owncloud](https://github.com/owncloud/core)
 
-## Contact Info.
-Please contact us at <ins>`hoholee12@gmail.com`</ins> with any questions.
-###
-
 ## Sources Used
 ### NemoCloudSync Display
 * [asn1](https://github.com/TritonDataCenter/node-asn1) MIT License
@@ -134,3 +130,7 @@ Please contact us at <ins>`hoholee12@gmail.com`</ins> with any questions.
 * [inherits](https://github.com/isaacs/inherits) ISC License
 * [node-sftp-server](https://github.com/validityhq/node-sftp-server) ISC License
 * [npm](https://github.com/npm/cli) The Artistic License 2.0
+
+## Contact Info.
+Please contact us at <ins>`hoholee12@gmail.com`</ins> with any questions.
+###
